@@ -24,7 +24,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                pm2 stop node-app || true
+                pm2 stop simple-node-jenkins || true
                 pm2 start index.js --name simple-node-jenkins
                 pm2 save
                 '''
