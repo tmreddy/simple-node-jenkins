@@ -25,7 +25,7 @@ pipeline {
             steps {
                 sh '''
                 pm2 stop node-app || true
-                pm2 start index.js --name node-app
+                pm2 start index.js --name simple-node-jenkins
                 pm2 save
                 '''
             }
