@@ -23,10 +23,10 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                // Kill old process (if running) and restart app
                 sh '''
-                pkill -f "node index.js" || true
-                nohup npm start > app.log 2>&1 &
+                pm2 stop node-app || true
+                pm2 start index.js --name node-app
+                pm2 save
                 '''
             }
         }
